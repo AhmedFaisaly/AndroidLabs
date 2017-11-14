@@ -32,9 +32,9 @@ public class ListItemsActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_items);
         Log.i(ACTIVITY_NAME, "In onCreate()");
-        imgBtn = (ImageButton) findViewById(R.id.imageButton2);
-        sw = (Switch) findViewById(R.id.switch3);
-        chbx = (CheckBox) findViewById(R.id.checkBox4);
+        imgBtn =  findViewById(R.id.imageButton2);
+        sw =  findViewById(R.id.switch3);
+        chbx =  findViewById(R.id.checkBox4);
 
         imgBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -75,8 +75,12 @@ public class ListItemsActivity extends Activity {
                 builder.setPositiveButton(R.string.ok,
                         new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
-                              //  Intent intent = new Intent(ListItemsActivity.this, StartActivity.class);
+
+                                Intent resultIntent = new Intent(  );
+                                resultIntent.putExtra("Response", "Here is my response");
+                                setResult(Activity.RESULT_OK, resultIntent);
                                 finish();
+
                             }
                         });
                 builder.setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
